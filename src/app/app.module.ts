@@ -1,36 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
-import { FormsModule } from '@angular/forms';
-import { ScrollToModule } from 'ng2-scroll-to-el';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ResumeBuilderComponent } from './resume-builder/resume-builder.component';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from 'src/section/components/home/home.component';
-import { AboutComponent } from 'src/section/components/about/about.component';
-import { EducationComponent } from 'src/section/components/education/education.component';
-import { LeadComponent } from 'src/section/components/lead/lead.component';
-import { ExperienceComponent } from 'src/section/components/experience/experience.component';
-import { HeaderComponent } from 'src/section/components/header/header.component';
-import { ContactComponent } from 'src/section/components/contact/contact.component';
-import { SkillComponent } from 'src/section/components/skill/skill.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { EducationComponent } from './education/education.component';
+import { LeadComponent } from './lead/lead.component';
+import { ExperienceComponent } from './experience/experience.component';
+import { SkillComponent } from './skill/skill.component';
+import { ScrollToModule } from 'ng2-scroll-to-el';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: '', component: ResumeBuilderComponent },
+  { path: 'home', component: HomeComponent },
 ];
 @NgModule({
-  declarations: [
-    AppComponent,
+  declarations: [AppComponent, ResumeBuilderComponent,
     HeaderComponent,
-
     HomeComponent,
-    AboutComponent, ContactComponent, EducationComponent, LeadComponent, ExperienceComponent, SkillComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    RouterModule.forRoot(appRoutes),
-    ScrollToModule.forRoot()
-  ],
+    AboutComponent, ContactComponent, EducationComponent, LeadComponent, ExperienceComponent, SkillComponent],
+  imports: [BrowserModule, ReactiveFormsModule, RouterModule.forRoot(appRoutes), ScrollToModule.forRoot()],
   providers: [],
   bootstrap: [AppComponent]
 })
